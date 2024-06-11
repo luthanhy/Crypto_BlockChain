@@ -7,7 +7,22 @@ public class Block {
     private String hashBlock;
     private String prevHash;
     private List<BlockDetail> blockDetailList;
+    public Block(){
+
+    }
+    public Block(Block block){
+        this.blockId = block.getBlockId();
+        this.hashBlock = block.getHashBlock();
+        this.prevHash = block.getPrevHash();
+        this.blockDetailList = new ArrayList<>(block.getBlockDetailList());
+    }
     public void AddBlockDetail(BlockDetail blockDetail){
+        if(blockDetail == null){
+            return;
+        }
+        else if(blockDetail.getAmount()==null || blockDetail.getFromAccount()==null || blockDetail.getToAccount()==null || blockDetail.getSignature()==null){
+            return;
+        }
         if(blockDetailList == null){
             blockDetailList = new ArrayList<>();
         }

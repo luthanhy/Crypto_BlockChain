@@ -3,11 +3,16 @@ public class BlockDetail {
     private String fromAccount;
     private String toAccount;
     private String signature;
-    public BlockDetail(Long amount, String fromAccount, String toAccount, String signature){
+    public BlockDetail(Long amount, String fromAccount, String toAccount){
         this.amount = amount;
         this.fromAccount = fromAccount;
         this.toAccount = toAccount;
-        this.signature = signature;
+    }
+    public void createSignature(String privateKey){
+        if(amount == null || fromAccount == null || toAccount == null){
+            return;
+        }
+        signature = HashFunction.SHA_512(amount+"-"+fromAccount+"-"+toAccount, HashFunction.SHA_256(privateKey, privateKey));
     }
 
     public Long getAmount() {
