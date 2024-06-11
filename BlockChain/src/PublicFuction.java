@@ -1,3 +1,5 @@
+import java.util.List;
+
 public class PublicFuction {
     public static Boolean isEmptyStr(String s){
         return s==null || s.isEmpty();
@@ -28,6 +30,25 @@ public class PublicFuction {
         kq+= s.substring(0, nStart);
         kq += "...";
         kq+= s.substring(s.length()-nStop);
+        return kq;
+    }
+    public static Long getBalanceFromBlockDetalis(List<BlockDetail> blockDetailList, String id){
+        Long kq = 0L;
+        for(BlockDetail i: blockDetailList){
+            if(i.getToAccount().compareTo(id)==0){
+                kq += i.getAmount();
+            }
+            else if(i.getFromAccount().compareTo(id)==0){
+                kq -= i.getAmount();
+            }
+        }
+        return kq;
+    }
+    public static Long getBalanceFromBlocks(List<Block> blockList, String id){
+        Long kq = 0L;
+        for(Block i: blockList){
+            kq += getBalanceFromBlockDetalis(i.getBlockDetailList(), id);
+        }
         return kq;
     }
 }
