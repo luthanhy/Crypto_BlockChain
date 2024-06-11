@@ -17,7 +17,7 @@ public class Main {
         System.out.println(block1);
 //        block2.setPrevHash(block1.getHashBlock());
 //        System.out.println(block2);
-        Long balance = PublicFuction.getBalanceFromBlockDetalis(block1.getBlockDetailList(), "nca");
+        Long balance = PublicFuction.getBalanceFromBlockDetails(block1.getBlockDetailList(), "nca");
         System.out.println(balance);
     }
 }

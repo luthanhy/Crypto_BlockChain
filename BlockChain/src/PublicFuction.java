@@ -32,7 +32,7 @@ public class PublicFuction {
         kq+= s.substring(s.length()-nStop);
         return kq;
     }
-    public static Long getBalanceFromBlockDetalis(List<BlockDetail> blockDetailList, String id){
+    public static Long getBalanceFromBlockDetails(List<BlockDetail> blockDetailList, String id){
         Long kq = 0L;
         for(BlockDetail i: blockDetailList){
             if(i.getToAccount().compareTo(id)==0){
@@ -47,7 +47,7 @@ public class PublicFuction {
     public static Long getBalanceFromBlocks(List<Block> blockList, String id){
         Long kq = 0L;
         for(Block i: blockList){
-            kq += getBalanceFromBlockDetalis(i.getBlockDetailList(), id);
+            kq += getBalanceFromBlockDetails(i.getBlockDetailList(), id);
         }
         return kq;
     }
