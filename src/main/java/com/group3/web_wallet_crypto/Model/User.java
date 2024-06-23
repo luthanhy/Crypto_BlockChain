@@ -1,4 +1,4 @@
-package Model;
+package com.group3.web_wallet_crypto.Model;
 
 public class User {
     private String userName;
