@@ -6,10 +6,15 @@ public class User {
 
     private String publicKey;
     private String privateKey;
-    private double Balance;
+    private double balance;
 
-    public User(String userName,String passWord ,String publicKey,String privateKey,String Amount){
-
+    public User(String userName, String passWord, String publicKey, String privateKey, double balance) {
+        this.userName = userName;
+        this.passWord = passWord;
+        this.publicKey = publicKey;
+        this.privateKey = privateKey;
+        this.balance = balance;
     }
+
 
 }
